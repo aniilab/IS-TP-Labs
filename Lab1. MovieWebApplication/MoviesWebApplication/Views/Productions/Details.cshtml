@@ -1,0 +1,40 @@
+﻿@model MoviesWebApplication.Production
+
+<h1>Кінокомпанія @ViewBag.CurrentProductionName</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+    </dl>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model.Movies) {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Details", "Movies", routeValues: new {id = item.Id})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+</div>
+<div>
+@*    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |*@
+    <a asp-action="ProductionList">Повернутися назад</a>
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MoviesWebApplication.MoviesGenre>
+
+<h1>Фільми жанру: </h1>
+<h1>@ViewBag.CurrentGenre.Name</h1>
+
+@{
+    if (User.IsInRole("admin"))
+    {
+        <form method="post" asp-controller="MoviesGenres" asp-action="Create" asp-route-currentGenreId="@ViewBag.CurrentGenre.Id">
+            <input type="submit" value="Додати фільм" />
+        </form>
+    }
+}
+
+<table class="table">
+    <thead>
+        <tr> 
+            <th>
+                @Html.DisplayNameFor(model => model.Movie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Movie.Name, "Details", "Movies", routeValues: new {id = @item.Movie.Id})
+                </td>
+
+                <td>
+                    @{
+                        if (User.IsInRole("admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Повернутися назад", "GenresList" ,"Genres" )
+</div>

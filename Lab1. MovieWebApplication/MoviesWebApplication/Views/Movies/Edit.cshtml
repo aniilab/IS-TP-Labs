@@ -1,0 +1,48 @@
+﻿@model MoviesWebApplication.Movie
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Внести зміни</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasOscar" /> @Html.DisplayNameFor(model => model.HasOscar)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Production" class="control-label"></label>
+                <select asp-for="ProductionId" class="form-control" asp-items="ViewBag.ProductionName"></select>
+                <span asp-validation-for="ProductionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Зберегти" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Повернутися назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

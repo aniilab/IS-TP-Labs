@@ -1,0 +1,17 @@
+﻿@model IEnumerable<MoviesWebApplication.User>
+
+<h2>Список користувачів</h2>
+<table class="table">
+    @foreach (var user in Model)
+    {
+        if (!string.Equals(user.UserName, "admin@gmail.com", StringComparison.InvariantCultureIgnoreCase))
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-userid="@user.Id">Права доступу</a>
+                </td>
+            </tr>
+        }
+    }
+</table>

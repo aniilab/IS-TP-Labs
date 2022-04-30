@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MoviesWebApplication.Movie>
+
+@{
+    ViewData["Title"] = "BlaBlaList";
+}
+
+<h1>Список найкращих фільмів</h1>
+
+
+@{
+    if (User.IsInRole("admin"))
+    {
+        <form method="post" asp-controller="Movies" asp-action="Create">
+            <input type="submit" value="Додати фільм" />
+        </form>
+    }
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                            @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                            @Html.DisplayNameFor(model => model.Production)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Production.Name)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Дізнатися більше</a>
+
+                    @{
+                        if (User.IsInRole("admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id">| Видалити |</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Змінити</a>
+                        }
+                    }
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

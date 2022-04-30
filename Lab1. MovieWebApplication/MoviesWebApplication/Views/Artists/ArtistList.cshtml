@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MoviesWebApplication.Artist>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Режисери та сценаристи</h1>
+
+@{
+    if (User.IsInRole("admin"))
+    {
+        <form method="post" asp-controller="Artists" asp-action="Create">
+            <input type="submit" value="Додати артиста" />
+        </form>
+    }
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfOscars)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfOscars)
+            </td>
+            <td>
+                 @Html.ActionLink("Роботи артиста", "ArtistMoviesList", "ArtistsJobsInMovies", routeValues: new {artistId = item.Id})
+                 @{
+                        if (User.IsInRole("admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id">| Видалити |</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Змінити</a>
+                        }
+                   }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
