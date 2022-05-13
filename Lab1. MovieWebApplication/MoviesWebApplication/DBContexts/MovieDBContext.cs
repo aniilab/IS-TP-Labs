@@ -112,7 +112,7 @@ namespace MoviesWebApplication
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.UserId);
+                entity.Property(e => e.UserName);
             });
 
             modelBuilder.Entity<Production>(entity =>

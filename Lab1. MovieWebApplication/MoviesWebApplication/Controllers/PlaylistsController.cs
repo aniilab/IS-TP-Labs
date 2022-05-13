@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MoviesWebApplication;
+using MoviesWebApplication.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MoviesWebApplication.Controllers
 {
@@ -20,7 +23,8 @@ namespace MoviesWebApplication.Controllers
         }
 
         // GET: Playlists
-        public async Task<IActionResult> Index()
+        //[Authorize(Roles = "admin, user")]
+        public async Task<IActionResult> PlayList()
         {
             return View(await _context.Playlists.ToListAsync());
         }
@@ -44,7 +48,7 @@ namespace MoviesWebApplication.Controllers
         }
 
         // GET: Playlists/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             return View();
         }
@@ -54,13 +58,13 @@ namespace MoviesWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,UserId")] Playlist playlist)
+        public async Task<IActionResult> CreateRes([Bind("Id,Name,UserName")] Playlist playlist)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(playlist);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(PlayList));
             }
             return View(playlist);
         }
@@ -86,7 +90,7 @@ namespace MoviesWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,UserId")] Playlist playlist)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,UserName")] Playlist playlist)
         {
             if (id != playlist.Id)
             {
@@ -111,7 +115,7 @@ namespace MoviesWebApplication.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(PlayList));
             }
             return View(playlist);
         }
@@ -119,6 +123,7 @@ namespace MoviesWebApplication.Controllers
         // GET: Playlists/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewBag.CurrentPlaylist = _context.Playlists.Single(p => p.Id == id);
             if (id == null)
             {
                 return NotFound();
@@ -142,7 +147,7 @@ namespace MoviesWebApplication.Controllers
             var playlist = await _context.Playlists.FindAsync(id);
             _context.Playlists.Remove(playlist);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(PlayList));
         }
 
         private bool PlaylistExists(int id)

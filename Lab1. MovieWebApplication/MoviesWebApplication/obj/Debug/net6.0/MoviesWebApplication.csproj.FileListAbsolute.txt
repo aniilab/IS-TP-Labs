@@ -560,3 +560,7 @@ D:\c#\MoviesWebApplication\MoviesWebApplication\bin\Debug\net6.0\Microsoft.AspNe
 D:\c#\MoviesWebApplication\MoviesWebApplication\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\c#\MoviesWebApplication\MoviesWebApplication\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 D:\c#\MoviesWebApplication\MoviesWebApplication\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+D:\c#\MoviesWebApplication\MoviesWebApplication\bin\Debug\net6.0\ClosedXML.dll
+D:\c#\MoviesWebApplication\MoviesWebApplication\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+D:\c#\MoviesWebApplication\MoviesWebApplication\bin\Debug\net6.0\ExcelNumberFormat.dll
+D:\c#\MoviesWebApplication\MoviesWebApplication\bin\Debug\net6.0\System.IO.Packaging.dll

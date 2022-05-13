@@ -111,6 +111,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzR2VucmVzXEdlbnJlTW92aWVzTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/c\#/MoviesWebApplication/MoviesWebApplication/Views/MoviesInPlaylists/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzSW5QbGF5bGlzdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/c\#/MoviesWebApplication/MoviesWebApplication/Views/MoviesInPlaylists/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzSW5QbGF5bGlzdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/c\#/MoviesWebApplication/MoviesWebApplication/Views/MoviesInPlaylists/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzSW5QbGF5bGlzdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/c\#/MoviesWebApplication/MoviesWebApplication/Views/MoviesInPlaylists/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzSW5QbGF5bGlzdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/c\#/MoviesWebApplication/MoviesWebApplication/Views/MoviesInPlaylists/PlaylistMovies.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzSW5QbGF5bGlzdHNcUGxheWxpc3RNb3ZpZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/c\#/MoviesWebApplication/MoviesWebApplication/Views/Movies/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -147,8 +167,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/c\#/MoviesWebApplication/MoviesWebApplication/Views/Playlists/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXEluZGV4LmNzaHRtbA==
+[D:/c\#/MoviesWebApplication/MoviesWebApplication/Views/Playlists/PlayList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXFBsYXlMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/c\#/MoviesWebApplication/MoviesWebApplication/Views/Productions/Create.cshtml]

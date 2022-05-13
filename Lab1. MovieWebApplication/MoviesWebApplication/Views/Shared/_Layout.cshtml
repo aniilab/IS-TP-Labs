@@ -32,6 +32,10 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Artists" asp-action="ArtistList">Режисери та сценаристи</a>
                         </li>
+                        <li class="nav-item">
+                             <a class="nav-link text-dark" asp-area="" asp-controller="Playlists" asp-action="PlayList">Підбірки фільмів</a>
+                        </li>
+
                         <li />
                         @{
                             if (User.IsInRole("admin"))

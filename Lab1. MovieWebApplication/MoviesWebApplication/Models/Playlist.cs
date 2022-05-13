@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoviesWebApplication
 {
@@ -11,9 +12,13 @@ namespace MoviesWebApplication
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
-        public Guid UserId { get; set; }
 
-        public virtual ICollection<MoviesInPlaylist> MoviesInPlaylists { get; set; }
+        [Display(Name = "Назва")]
+        public string Name { get; set; }
+
+        [Display(Name = "Username створювача")]
+        public string UserName { get; set; }
+
+        public virtual ICollection<MoviesInPlaylist>? MoviesInPlaylists { get; set; }
     }
 }

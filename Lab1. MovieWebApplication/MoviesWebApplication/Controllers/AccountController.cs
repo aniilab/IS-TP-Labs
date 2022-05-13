@@ -29,7 +29,12 @@ namespace LibraryWebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.UserName };
+                User user = new User
+                {
+                    Email = model.Email,
+                    UserName = model.UserName
+                };
+
                 // додаємо користувача
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -62,8 +67,9 @@ namespace LibraryWebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
+                var signedUser = await _userManager.FindByEmailAsync(model.Email);
                 var result =
-                    await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                    await _signInManager.PasswordSignInAsync(signedUser.UserName, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     // перевіряємо, чи належить URL додатку

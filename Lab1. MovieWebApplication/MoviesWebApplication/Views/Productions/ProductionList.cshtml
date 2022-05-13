@@ -6,7 +6,21 @@
 
 <h1>Провідні кінокомпанії світу</h1>
 
-@{
+
+<h5>Завантаження інформації з файлу</h5>
+@using (Html.BeginForm("Import", "Productions", FormMethod.Post, new { enctype = "multipart/form-data", id = "frm-excel" }))
+{
+    <div>
+        <input type="file" name="fileExcel" id="fileExcel" /> <input type="submit" value="Завантажити" />
+    </div>
+}
+
+    <h5>Вивантаження інформації у файл</h5>
+    <form method="post" asp-controller="Productions" asp-action="Export"> <input type="submit" value="Вивантажити" /> 
+    </form>
+
+<p>
+    @{
     if (User.IsInRole("admin"))
     {
         <form method="post" asp-controller="Productions" asp-action="Create">
@@ -14,6 +28,10 @@
         </form>
     }
 }
+</p>
+
+
+
 <table class="table">
     <thead>
         <tr>

@@ -21,7 +21,7 @@ namespace MoviesWebApplication.Controllers
         }
 
         // GET: MoviesGenres
-        public async Task<IActionResult> GenreMoviesList(int genreId)
+        public async Task<IActionResult> GenreMoviesList(int genreId) 
         {
             var currentGenre = _context.Genres.FirstOrDefault(g => g.Id == genreId);
 
@@ -47,7 +47,7 @@ namespace MoviesWebApplication.Controllers
             var currentGenreMovieIds = _context.MoviesGenres.Where(mg => mg.GenreId == currentGenreId).Select(mg => mg.MovieId);
             ViewBag.CurrentGenre = currentGenre;
             ViewBag.MoviesList = new SelectList(_context.Movies.Where(m => !currentGenreMovieIds.Contains(m.Id)), "Id", "Name");
-            return View();
+            return View(); 
         }
 
         // POST: MoviesGenres/Create
@@ -77,7 +77,7 @@ namespace MoviesWebApplication.Controllers
 
         // GET: MoviesGenres/Delete/5
         public async Task<IActionResult> Delete(int? id)
-        {
+        { 
             if (id == null)
             {
                 return NotFound();

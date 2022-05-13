@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MoviesWebApplication.Playlist>
+
+<h1>Підбірки фільмів</h1>
+
+<form method="post" asp-controller="Playlists" asp-action="Create">
+    <input type="submit" value="Створити підбірку" />
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.ActionLink("Фільми", "PlaylistMovies", "MoviesInPlaylists", routeValues: new {playlistId = item.Id})
+                    @{
+                        if (User.IsInRole("admin") || (@User.Identity.Name==item.UserName))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id">| Видалити |</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Змінити</a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
