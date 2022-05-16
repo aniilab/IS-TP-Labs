@@ -8,6 +8,7 @@ namespace MusicAPIWebApplication.Models
         {
             GenresOfSong = new List<GenresOfSong>();
         }
+        [Key]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]

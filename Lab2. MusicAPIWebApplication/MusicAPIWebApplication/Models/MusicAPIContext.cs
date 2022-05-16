@@ -9,9 +9,13 @@ namespace MusicAPIWebApplication.Models
         public virtual DbSet<Artist> Artists { get; set; }  
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<GenresOfSong> GenresOfSongs { get; set; }
-        public MusicAPIContext(DbContextOptions<MusicAPIContext> options) : base(options)
+        public virtual DbSet<Playlist> Playlists { get; set; }
+        public virtual DbSet<SongsInPlaylist> SongsInPlaylist { get; set; }
+        public MusicAPIContext(DbContextOptions<MusicAPIContext> options) 
+            : base(options)
         {
             Database.EnsureCreated();
         }
     }
 }
+

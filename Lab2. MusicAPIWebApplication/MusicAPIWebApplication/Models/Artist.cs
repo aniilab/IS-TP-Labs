@@ -5,9 +5,9 @@ namespace MusicAPIWebApplication.Models
     {
         public Artist()
         {
-            Songs = new List<Song>();
             Albums = new List<Album>();
         }
+        [Key]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
@@ -18,7 +18,6 @@ namespace MusicAPIWebApplication.Models
         [Display(Name = "Країна")]
         public string Country { get; set; }
 
-        public virtual ICollection<Song> Songs { get; set; }
         public virtual ICollection<Album> Albums { get; set; }
     }
 
